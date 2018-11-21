@@ -20,6 +20,7 @@ Partial Public Class Login
     End Sub
 
     Protected Sub LogIn(sender As Object, e As EventArgs)
+
         If IsValid Then
             ' Validate the user password
             Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
@@ -27,11 +28,12 @@ Partial Public Class Login
 
             ' This doen't count login failures towards account lockout
             ' To enable password failures to trigger lockout, change to shouldLockout := True
-            Dim result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout := False)
+            Dim result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout:=False)
 
             Select Case result
                 Case SignInStatus.Success
                     IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+
                     Exit Select
                 Case SignInStatus.LockedOut
                     Response.Redirect("/Account/Lockout")
@@ -43,7 +45,7 @@ Partial Public Class Login
                                       True)
                     Exit Select
                 Case Else
-                    FailureText.Text = "Invalid login attempt"
+                    FailureText.Text = "Invalid Login Attempt (Kolbe Administrator)"
                     ErrorMessage.Visible = True
                     Exit Select
             End Select

@@ -6,6 +6,8 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.EntityFramework
 Imports Microsoft.AspNet.Identity.Owin
 Imports Owin
+Imports MySql.Data.MySqlClient
+
 
 Partial Public Class Register
     Inherits Page

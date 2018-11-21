@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="UserAppl.SiteMaster" %>
 
+<%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Import Namespace="UserAppl" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
 <!DOCTYPE html>
@@ -16,6 +17,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -40,22 +42,36 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+                            <%--<% if (Request.IsAuthenticated) %>
+                        
+                            <% End If %>--%>
+        <%--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/Aspx/AppName.aspx">Application</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li> <a runat="server" href="#First">First</a></li>
+                        <li> <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false"  aria-controls="collapseExample" >Admin</a></li>
                     </ul>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#">Active</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li>
+                    </ul>
+                </div>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -73,11 +89,79 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
+        </div>--%>
+        <div class="mynav_navbar">
+          <a runat="server" href="~/Aspx/AppName.aspx" style="color: #FFFFFF; font-weight: bolder; ">Home</a>
+          <div class="mynav_dropdown">
+            <button class="mynav_dropbtn">Admin 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="mynav_dropdown-content">
+              <a runat="server"  href="~/Aspx/Incidents.aspx" style="display: none">Incidents</a>
+              <a runat="server" href="~/Aspx/NominalRoll.aspx">Nominal Role</a>
+              <a runat="server" href="~/Aspx/IProgEnt.aspx">Programs Completion</a>
+              <a runat="server" href="~/Aspx/VisitorView.aspx">Inmate Visitor Lookup</a>
             </div>
-        </div>
+          </div> 
+            <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LIV">
+                    <AnonymousTemplate>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a runat="server" href="~/Account/Register">Register</a></li>
+                            <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                        </ul>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <ul class="nav navbar-nav navbar-right" style="margin-right: 5px">
+                            <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                            <li>
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+                        </ul>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+        </div> 
+      <%--<dx:ASPxMenu ID="ASPxMenu1" runat="server" EnableTheming="True" Theme="BlackGlass" Width="316px">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/Aspx/AppName.aspx" Text="Home">
+                        <ItemStyle BackColor="#0066FF" Border-BorderColor="White" Border-BorderStyle="Groove" VerticalAlign="Middle" Width="75px">
+                        <SelectedStyle BackColor="#FF0066">
+                        </SelectedStyle>
+                        </ItemStyle>
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Admin">
+                        <Items>
+                            <dx:MenuItem Text="Incidents" NavigateUrl="~/Aspx/Incidents.aspx" Visible="False">
+                            </dx:MenuItem>
+                            <dx:MenuItem NavigateUrl="~/Aspx/NominalRoll.aspx" Text="Nominal Roll">
+                            </dx:MenuItem>
+                            <dx:MenuItem NavigateUrl="~/Aspx/IProgEnt.aspx" Text="Programs Completion">
+                            </dx:MenuItem>
+                            <dx:MenuItem NavigateUrl="~/Aspx/VisitorView.aspx" Text="Inmate Visitor Lookup">
+                            </dx:MenuItem>
+                        </Items>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Movement" Visible="False">
+                        <ItemStyle HorizontalAlign="Center" />
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Reports">
+                        <Items>
+                            <dx:MenuItem Text="Statistics">
+                                <Items>
+                                    <dx:MenuItem NavigateUrl="Aspx/ProgsComplete.aspx" Text="Program Completion">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                        </Items>
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Aspx/AppName.aspx" Text="Exit">
+                    </dx:MenuItem>
+                </Items>
+            </dx:ASPxMenu>--%>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
