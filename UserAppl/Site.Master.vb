@@ -46,7 +46,7 @@ Public Class SiteMaster
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        Page.Title = "Prison Control Interface"
     End Sub
 
     Protected Sub Unnamed_LoggingOut(sender As Object, e As LoginCancelEventArgs)

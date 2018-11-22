@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="UserAppl.SiteMaster" %>
-
 <%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%@ Import Namespace="UserAppl" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
@@ -9,7 +8,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -45,19 +44,34 @@
                             <%--<% if (Request.IsAuthenticated) %>
                         
                             <% End If %>--%>
-        <div class="mynav_navbar">
-          <a runat="server" href="~/Aspx/AppName.aspx" style="color: #FFFFFF; font-weight: bolder; ">Home</a>
-          <div class="mynav_dropdown">
-            <button class="mynav_dropbtn">Admin 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="mynav_dropdown-content">
-              <a runat="server"  href="~/Aspx/Incidents.aspx" style="display: none">Incidents</a>
-              <a runat="server" href="~/Aspx/NominalRoll.aspx">Nominal Role</a>
-              <a runat="server" href="~/Aspx/IProgEnt.aspx">Programs Completion</a>
-              <a runat="server" href="~/Aspx/VisitorView.aspx">Inmate Visitor Lookup</a>
+        <div class="mynav_navbar"><a runat="server" href="~/Aspx/AppName.aspx" style="color: #FFFFFF; font-weight: bolder; ">Home</a>
+            <div class="mynav_dropdown"> 
+                <button class="mynav_dropbtn">Admin 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="mynav_dropdown-content">
+                    <a runat="server"  href="~/Aspx/Incidents.aspx" style="display: none">Incidents</a>
+                    <a runat="server" href="~/Aspx/NominalRoll.aspx">Nominal Role</a>
+                    <a runat="server" href="~/Aspx/IProgEnt.aspx">Programs Completion</a>
+                    <a runat="server" href="~/Aspx/VisitorView.aspx">Inmate Visitor Lookup</a>
+                </div>
             </div>
-          </div> 
+            <div class="mynav_dropdown"> 
+                <button class="mynav_dropbtn">Reports 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="mynav_dropdown-content">
+                    <a runat="server" href="~/Aspx/ProgsComplete.aspx" style="padding-right: 5px; padding-left: 5px;">Program Completion</a>
+                    <%--<div class="mynav_dropdown"> 
+                        <button class="mynav_dropbtn">Statistics 
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+                            <a runat="server" href="~/Aspx/ProgsComplete.aspx" style="padding-right: 5px; padding-left: 5px;">Program Completion</a>
+                        </div>
+                    </div>--%>
+                </div>
+            </div>
             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LIV">
                     <AnonymousTemplate>
                         <ul class="nav navbar-nav navbar-right">
@@ -75,51 +89,13 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
         </div> 
-      <%--<dx:ASPxMenu ID="ASPxMenu1" runat="server" EnableTheming="True" Theme="BlackGlass" Width="316px">
-                <Items>
-                    <dx:MenuItem NavigateUrl="~/Aspx/AppName.aspx" Text="Home">
-                        <ItemStyle BackColor="#0066FF" Border-BorderColor="White" Border-BorderStyle="Groove" VerticalAlign="Middle" Width="75px">
-                        <SelectedStyle BackColor="#FF0066">
-                        </SelectedStyle>
-                        </ItemStyle>
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Admin">
-                        <Items>
-                            <dx:MenuItem Text="Incidents" NavigateUrl="~/Aspx/Incidents.aspx" Visible="False">
-                            </dx:MenuItem>
-                            <dx:MenuItem NavigateUrl="~/Aspx/NominalRoll.aspx" Text="Nominal Roll">
-                            </dx:MenuItem>
-                            <dx:MenuItem NavigateUrl="~/Aspx/IProgEnt.aspx" Text="Programs Completion">
-                            </dx:MenuItem>
-                            <dx:MenuItem NavigateUrl="~/Aspx/VisitorView.aspx" Text="Inmate Visitor Lookup">
-                            </dx:MenuItem>
-                        </Items>
-                        <ItemStyle HorizontalAlign="Center" />
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Movement" Visible="False">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Reports">
-                        <Items>
-                            <dx:MenuItem Text="Statistics">
-                                <Items>
-                                    <dx:MenuItem NavigateUrl="Aspx/ProgsComplete.aspx" Text="Program Completion">
-                                    </dx:MenuItem>
-                                </Items>
-                            </dx:MenuItem>
-                        </Items>
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/Aspx/AppName.aspx" Text="Exit">
-                    </dx:MenuItem>
-                </Items>
-            </dx:ASPxMenu>--%>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Prison Control Interface Application</p>
             </footer>
         </div>
     </form>

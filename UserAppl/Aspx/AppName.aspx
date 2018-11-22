@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Prison Control Interface" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AppName.aspx.vb" Inherits="UserAppl.AppName" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AppName.aspx.vb" Inherits="UserAppl.AppName" %>
 <%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <%--<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="AppName.aspx.vb" Inherits="WebDeploySite.AppName" %>--%>
 
