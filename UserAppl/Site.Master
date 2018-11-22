@@ -45,51 +45,6 @@
                             <%--<% if (Request.IsAuthenticated) %>
                         
                             <% End If %>--%>
-        <%--<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" runat="server" href="~/Aspx/AppName.aspx">Application</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li> <a runat="server" href="#First">First</a></li>
-                        <li> <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false"  aria-controls="collapseExample" >Admin</a></li>
-                    </ul>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <ul class="nav flex-column">
-                          <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li>
-                    </ul>
-                </div>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </div>
-        </div>--%>
         <div class="mynav_navbar">
           <a runat="server" href="~/Aspx/AppName.aspx" style="color: #FFFFFF; font-weight: bolder; ">Home</a>
           <div class="mynav_dropdown">
