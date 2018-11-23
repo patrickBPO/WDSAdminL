@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="DummyRoot"  description="">
+    <siteMapNode url="~/Aspx/AppName.aspx" title="Home"  description="" />
+    <siteMapNode title="Admin"  description="">
+      <siteMapNode url="~/Aspx/Incidents.aspx" title="Incidents"  description="" />
+      <siteMapNode url="~/Aspx/NominalRoll.aspx" title="Nominal Role"  description="" />
+      <siteMapNode url="~/Aspx/IProgEnt.aspx" title="Program Completions"  description="" />
+      <siteMapNode url="~/Aspx/VisitorView.aspx" title="Inmate Visitor Lookup"  description="" />
+    </siteMapNode>
+    <siteMapNode title="Reports"  description="">
+      <siteMapNode url="~/Aspx/ProgsComplete.aspx" title="Program Completion"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

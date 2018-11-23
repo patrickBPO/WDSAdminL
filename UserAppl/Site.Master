@@ -9,17 +9,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
-
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" SiteMapProvider="MySqlSiteMapProvider" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
+            <CurrentNodeStyle ForeColor="#333333" />
+            <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+            <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+         </asp:SiteMapPath>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -40,10 +43,6 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-                            <%--<% if (Request.IsAuthenticated) %>
-                        
-                            <% End If %>--%>
         <div class="mynav_navbar"><a runat="server" href="~/Aspx/AppName.aspx" style="color: #FFFFFF; font-weight: bolder; ">Home</a>
             <div class="mynav_dropdown"> 
                 <button class="mynav_dropbtn">Admin 
@@ -52,7 +51,7 @@
                 <div class="mynav_dropdown-content">
                     <a runat="server"  href="~/Aspx/Incidents.aspx" style="display: none">Incidents</a>
                     <a runat="server" href="~/Aspx/NominalRoll.aspx">Nominal Role</a>
-                    <a runat="server" href="~/Aspx/IProgEnt.aspx">Programs Completion</a>
+                    <a runat="server" href="~/Aspx/IProgEnt.aspx">Program Completions</a>
                     <a runat="server" href="~/Aspx/VisitorView.aspx">Inmate Visitor Lookup</a>
                 </div>
             </div>
@@ -91,11 +90,13 @@
         </div> 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                
             </asp:ContentPlaceHolder>
-            
+         
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Prison Control Interface Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Prison Control Interface Application
+                    </p>
             </footer>
         </div>
     </form>
